@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+function Creature() {
+  
+  this.reportName= function()
+  {
+	  return this.firstName + " " + this.lastName+" "+this.alias;
+  };
+}
+
+
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+  this.alias= "Wick";
+}
+
+
+Person.prototype = new Creature()  ;
+
+/*'
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName
+};
+*/
+var obj = new Person("John", "Doe", 50, "blue");
+document.getElementById("demo").innerHTML =
+" <b>IS</b> " + obj.reportName(); 
+</script>
+
+</body>
+</html>
